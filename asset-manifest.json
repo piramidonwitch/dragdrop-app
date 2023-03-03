@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dragdrop-app/static/css/main.87e317cb.css",
+    "main.js": "/dragdrop-app/static/js/main.8af69bae.js",
+    "index.html": "/dragdrop-app/index.html",
+    "main.87e317cb.css.map": "/dragdrop-app/static/css/main.87e317cb.css.map",
+    "main.8af69bae.js.map": "/dragdrop-app/static/js/main.8af69bae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87e317cb.css",
+    "static/js/main.8af69bae.js"
+  ]
+}
