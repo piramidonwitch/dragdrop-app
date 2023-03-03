@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.item {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.title {
+  border: 2px solid gray;
+  border-radius: 25% 10%;
+  padding: 5px 10px;
+  min-width: 100px;
+  
+}
+
+button {
+  border: 0px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+  background-color: transparent;
+  color: white;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+ul {
+  padding: 0px;
+  margin: 10px;
+  list-style-type: none
+}
+
+input {
+  
+  border: 2px;
+  border-radius: 25% 10%;
+  padding: 10px;
+  margin: 5px;
+}
+
+input, textarea, input:active, textarea:active {outline:none;}
+
+
+
+p {
+  margin: 0;
+  margin-bottom: 3px;
+  padding: 5px;
+  color:burlywood;
+  font-weight: 200;
+  font-size: medium;
+  width: fit-content;
+}
