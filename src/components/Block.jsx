@@ -3,12 +3,12 @@ import { useRef, useState, useLayoutEffect } from "react"
 
 
 export function Block({ data, setData, killItem, onEdited }) {
-    
+
     return (
         <div>
             <Reorder.Group axis="y" values={data} onReorder={setData} >
                 {data.map(item =>
-                    <Item key={item.id} item={item} killItem={killItem} onEdited={onEdited}/>
+                    <Item key={item.id} item={item} killItem={killItem} onEdited={onEdited} />
                 )}
             </Reorder.Group>
         </div>
@@ -20,17 +20,24 @@ function Item({ item, killItem, onEdited }) {
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(item.title)
     const editTitleInputRef = useRef('null')
-    
+
     //манипуляции с DOM поэтому useLayoutEffect, а не useEffect
-    useLayoutEffect(()=>{
-        if (isEditMode && editTitleInputRef) {editTitleInputRef.current.focus()
+    useLayoutEffect(() => {
+        if (isEditMode && editTitleInputRef) {
+            editTitleInputRef.current.focus()
         }
-        }, [isEditMode])
-    
+    }, [isEditMode])
+
     const changeHandler = (event) => {
         setValue(event.target.value)
     }
-    
+    const onPressHandler = (event) => {
+        if (event.keyCode === 13) {
+            onEdited(item.id, value)
+            setIsEditMode(false)
+        }
+    }
+
     return (
         <Reorder.Item
             className="item"
@@ -39,7 +46,11 @@ function Item({ item, killItem, onEdited }) {
             onDoubleClick={() => { killItem(item.id) }}
         >
             {isEditMode ? (
-                <input value={value} onChange={changeHandler} ref={editTitleInputRef}/>
+                <input value={value}
+                    onChange={changeHandler}
+                    ref={editTitleInputRef}
+                    onKeyDown={onPressHandler}
+                />
             ) : (
                 <div className="title">
                     <span>{item.title}</span>
@@ -47,14 +58,14 @@ function Item({ item, killItem, onEdited }) {
             )}
 
             {isEditMode ? (
-                <button onClick={() => { 
+                <button className="btn" onClick={() => {
                     onEdited(item.id, value)
                     setIsEditMode(false)
-                    }}>
+                }}>
                     ok
                 </button>
             ) : (
-                <button onClick={() => { setIsEditMode(!isEditMode) }}>
+                <button className="btn" onClick={() => { setIsEditMode(!isEditMode) }}>
                     edit
                 </button>)}
 
