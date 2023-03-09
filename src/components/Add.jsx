@@ -22,7 +22,7 @@ export function Add ({changeData}) {
         <form onSubmit={submitHandler} autoComplete='off'>
             { error && <p>{error}</p> }
             <input placeholder="new item" name="inp"></input>
-            <input className="submitBtn" type='submit' value='add item'></input>
+            <button className="submitBtn" type='submit' value='add item'>add item</button>
         </form>
     )
 }
