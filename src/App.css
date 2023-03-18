@@ -12,7 +12,7 @@
 
 .item {
   margin-bottom: 15px;
-  display: flex;
+  display: flex;  
 }
 
 .title {
@@ -20,7 +20,13 @@
   border-radius: 25% 10%;
   padding: 5px 10px;
   min-width: 100px;
-  
+}
+
+.edit {
+  border: 2px;
+  border-radius: 25% 10%;
+  padding: 10px;
+  margin: 5px;
 }
 
 .btn {
@@ -30,8 +36,8 @@
   margin-left: 10px;
   background-color: transparent;
   color: white;
-  
 }
+
 
 form {
   margin-bottom: 10px;
@@ -50,6 +56,21 @@ input {
   margin: 5px;
 }
 
+.check {
+  margin-right: 10px;
+  display: flex
+}
+
+/* .check input{
+  padding: 5px;
+  margin: 0;
+} */
+
+.filterBlock {
+  display: flex;
+  align-items: center;
+}
+
 .submitBtn {
   border: 2px;
   border-radius: 25% 10%;
@@ -57,6 +78,11 @@ input {
   margin: 5px;
   background-color: rgb(233, 233, 233);
 }
+
+.item, .btn, .submitBtn:hover {
+  cursor: pointer;
+}
+  
 
 
 

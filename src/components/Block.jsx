@@ -2,32 +2,35 @@ import { Reorder } from "framer-motion"
 import { useRef, useState, useLayoutEffect } from "react"
 
 
-export function Block({ data, setData, killItem, onEdited }) {
+export function Block({ data, setData, killItem, onEdited, onDone }) {
 
     return (
         <div>
             <Reorder.Group axis="y" values={data} onReorder={setData} >
                 {data.map(item =>
-                    <Item key={item.id} item={item} killItem={killItem} onEdited={onEdited} />
+                    <Item key={item.id}
+                        item={item}
+                        killItem={killItem}
+                        onEdited={onEdited}
+                        onDone={onDone}
+                    />
                 )}
             </Reorder.Group>
         </div>
     )
 }
 
-function Item({ item, killItem, onEdited }) {
+function Item({ item, killItem, onEdited, onDone }) {
 
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(item.title)
     const editTitleInputRef = useRef('null')
-
     //манипуляции с DOM поэтому useLayoutEffect, а не useEffect
     useLayoutEffect(() => {
         if (isEditMode && editTitleInputRef) {
             editTitleInputRef.current.focus()
         }
     }, [isEditMode])
-
     const changeHandler = (event) => {
         setValue(event.target.value)
     }
@@ -45,8 +48,18 @@ function Item({ item, killItem, onEdited }) {
             whileDrag={{ scale: 1.2 }} // для комноненты framer motion
             onDoubleClick={() => { killItem(item.id) }}
         >
+            <label className="check">
+            <input type="checkbox" checked={item.isDone}
+                onChange={(e) => {
+                    const checked = e.target.checked
+                    onDone(item.id, checked)
+                }}
+            />
+            </label>
+
             {isEditMode ? (
-                <input value={value}
+                <input className="edit"
+                value={value}
                     onChange={changeHandler}
                     ref={editTitleInputRef}
                     onKeyDown={onPressHandler}
@@ -56,7 +69,6 @@ function Item({ item, killItem, onEdited }) {
                     <span>{item.title}</span>
                 </div>
             )}
-
             {isEditMode ? (
                 <button className="btn" onClick={() => {
                     onEdited(item.id, value)
@@ -68,7 +80,6 @@ function Item({ item, killItem, onEdited }) {
                 <button className="btn" onClick={() => { setIsEditMode(!isEditMode) }}>
                     edit
                 </button>)}
-
         </Reorder.Item>
     )
 }

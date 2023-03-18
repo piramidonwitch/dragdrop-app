@@ -8,7 +8,7 @@ export function Add ({changeData}) {
         if(e.target.inp.value.trim().length === 0) {
             setError('please input data')
         } else {
-            changeData(prevData=>[...prevData, {id: Date.now(), title}])
+            changeData(prevData=>[...prevData, {id: Date.now(), title, isDone: false}])
             setError('')
         }
         e.target.reset()
