@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export function Add ({changeData}) {
+export function Add ({changeData, filter}) {
     const [error, setError] = useState('')
     const submitHandler = (e) => {
         e.preventDefault()
@@ -17,6 +17,7 @@ export function Add ({changeData}) {
             once: true,
             passive: false,
         })
+        filter('active')
     }
     return (
         <form onSubmit={submitHandler} autoComplete='off'>

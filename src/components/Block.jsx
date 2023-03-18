@@ -52,7 +52,7 @@ function Item({ item, killItem, onEdited, onDone }) {
             <input type="checkbox" checked={item.isDone}
                 onChange={(e) => {
                     const checked = e.target.checked
-                    onDone(item.id, checked)
+                    setTimeout(()=>{onDone(item.id, checked)}, 150)
                 }}
             />
             </label>

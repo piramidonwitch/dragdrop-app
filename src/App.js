@@ -47,7 +47,9 @@ function App() {
   
   return (
     <div className="App">
-      <Add changeData={setData} />
+      <Add changeData={setData}
+      filter={setFilter}
+      />
       <Block
         data={filtredData}
         setData={setData}
