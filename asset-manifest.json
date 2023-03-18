@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/dragdrop-app/static/css/main.4b573559.css",
-    "main.js": "/dragdrop-app/static/js/main.ba87013b.js",
+    "main.css": "/dragdrop-app/static/css/main.51aa696c.css",
+    "main.js": "/dragdrop-app/static/js/main.d1b8b089.js",
     "index.html": "/dragdrop-app/index.html",
-    "main.4b573559.css.map": "/dragdrop-app/static/css/main.4b573559.css.map",
-    "main.ba87013b.js.map": "/dragdrop-app/static/js/main.ba87013b.js.map"
+    "main.51aa696c.css.map": "/dragdrop-app/static/css/main.51aa696c.css.map",
+    "main.d1b8b089.js.map": "/dragdrop-app/static/js/main.d1b8b089.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b573559.css",
-    "static/js/main.ba87013b.js"
+    "static/css/main.51aa696c.css",
+    "static/js/main.d1b8b089.js"
   ]
 }
