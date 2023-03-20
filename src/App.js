@@ -52,8 +52,12 @@ function App() {
 
   return (
     <div className="App">
-      <Add changeData={setData}
+      <Add
+        changeData={setData}
         filter={setFilter}
+        setActiveBtn={setActiveBtn}
+        setCompleteBtn={setCompleteBtn}
+        setAllBtn={setAllBtn}
       />
       <Block
         data={filtredData}
@@ -64,14 +68,14 @@ function App() {
       />
       <FilterBlock
         changeFilter={changeFilter}
-        
+
         setActiveBtn={setActiveBtn}
         setCompleteBtn={setCompleteBtn}
         setAllBtn={setAllBtn}
         activeBtn={activeBtn}
         completeBtn={completeBtn}
         allBtn={allBtn}
-        
+
       />
 
     </div>
