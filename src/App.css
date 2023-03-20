@@ -62,11 +62,6 @@ input {
   display: flex
 }
 
-/* .check input{
-  padding: 5px;
-  margin: 0;
-} */
-
 .filterBlock {
   display: flex;
   align-items: center;
@@ -80,13 +75,18 @@ input {
   background-color: rgb(233, 233, 233);
 }
 
+.submitBtnActive {
+  border: 2px;
+  border-radius: 25% 10%;
+  padding: 10px;
+  margin: 5px;
+  background-color: rgb(144, 144, 144);
+  color: white;
+}
+
 .item, .btn, .submitBtn:hover {
   cursor: pointer;
 }
-  
-
-
-
 
 input, textarea, input:active, textarea:active {outline:none;}
 

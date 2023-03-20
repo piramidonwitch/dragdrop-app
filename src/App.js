@@ -13,10 +13,15 @@ function App() {
   const getLocStorData = JSON.parse(localStorage.getItem('items'))
   const [data, setData] = useState(getLocStorData || defaultData)
   const [filter, setFilter] = useState('active')
+
+  const [activeBtn, setActiveBtn] = useState('false')
+  const [completeBtn, setCompleteBtn] = useState('false')
+  const [allBtn, setAllBtn] = useState('false')
+
   useEffect(() => {
     localStorage.setItem('items', JSON.stringify(data))
   }, [data])
- 
+
 
   //принимает id нажатого
   const killItem = (id) => {
@@ -32,7 +37,7 @@ function App() {
   }
 
   let filtredData = data
-  
+
   if (filter === 'completed') {
     filtredData = filtredData.filter(e => e.isDone === true)
   }
@@ -44,11 +49,11 @@ function App() {
     setData(
       data.map(e => e.id === id ? { ...e, isDone: checked } : e))
   }
-  
+
   return (
     <div className="App">
       <Add changeData={setData}
-      filter={setFilter}
+        filter={setFilter}
       />
       <Block
         data={filtredData}
@@ -59,6 +64,14 @@ function App() {
       />
       <FilterBlock
         changeFilter={changeFilter}
+        
+        setActiveBtn={setActiveBtn}
+        setCompleteBtn={setCompleteBtn}
+        setAllBtn={setAllBtn}
+        activeBtn={activeBtn}
+        completeBtn={completeBtn}
+        allBtn={allBtn}
+        
       />
 
     </div>
