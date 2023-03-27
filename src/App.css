@@ -11,34 +11,45 @@
 }
 
 .item {
-  margin-bottom: 15px;
+  min-width: 200px;
+  margin-bottom: 5px;
   display: flex;  
-  align-items: stretch;
+  align-items:center;
+  justify-content:space-between;
+  border: none;
+  border-radius: 5px;
+  color: #282c34;
 }
 
 .title {
-  border: 2px solid gray;
-  border-radius: 25% 10%;
   padding: 5px 10px;
-  min-width: 100px;
 }
 
-.edit {
-  border: 2px;
-  border-radius: 25% 10%;
+.edit_input_field {
+  min-width: 200px;
+  border: none;
   padding: 10px;
   margin: 5px;
+  background: transparent;
+  color: #282c34;
+  font-size: calc(10px + 2vmin);
 }
 
-.btn {
-  border: 2px solid gray;
-  border-radius: 25% 10%;
+.del_btn, .edit_btn {
+  border: none;
   padding: 5px 15px;
   margin-left: 10px;
   background-color: transparent;
-  color: white;
+  color: #282c34;
+}
+.edit_btn, .submitBtn:hover {
+  cursor: pointer;
 }
 
+.del_btn:hover {
+  cursor: pointer;
+  color: white;
+}
 
 form {
   margin-bottom: 10px;
@@ -52,45 +63,26 @@ ul {
 
 input {
   border: 2px;
-  border-radius: 25% 10%;
+  border-radius: 5px;
   padding: 10px;
   margin: 5px;
 }
 
-.check {
-  margin-right: 10px;
-  display: flex
-}
-
-.filterBlock {
-  display: flex;
-  align-items: center;
-}
-
 .submitBtn {
   border: 2px;
-  border-radius: 25% 10%;
+  border-radius: 5px;
   padding: 10px;
   margin: 5px;
   background-color: rgb(233, 233, 233);
 }
 
-.submitBtnActive {
-  border: 2px;
-  border-radius: 25% 10%;
-  padding: 10px;
-  margin: 5px;
-  background-color: rgb(144, 144, 144);
-  color: white;
-}
-
-.item, .btn, .submitBtn:hover {
-  cursor: pointer;
+.item:hover {
+  cursor: grab;
 }
 
 input, textarea, input:active, textarea:active {outline:none;}
 
-p {
+.error_m {
   margin: 0;
   margin-bottom: 3px;
   padding: 5px;

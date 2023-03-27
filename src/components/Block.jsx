@@ -1,8 +1,7 @@
 import { Reorder } from "framer-motion"
 import { useRef, useState, useLayoutEffect } from "react"
 
-
-export function Block({ data, setData, killItem, onEdited, onDone }) {
+export function Block({ data, setData, killItem, onEdited }) {
 
     return (
         <div>
@@ -12,7 +11,6 @@ export function Block({ data, setData, killItem, onEdited, onDone }) {
                         item={item}
                         killItem={killItem}
                         onEdited={onEdited}
-                        onDone={onDone}
                     />
                 )}
             </Reorder.Group>
@@ -20,7 +18,7 @@ export function Block({ data, setData, killItem, onEdited, onDone }) {
     )
 }
 
-function Item({ item, killItem, onEdited, onDone }) {
+function Item({ item, killItem, onEdited }) {
 
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(item.title)
@@ -44,25 +42,19 @@ function Item({ item, killItem, onEdited, onDone }) {
     return (
         <Reorder.Item
             className="item"
+            style={{ backgroundColor: item.color }}
             value={item} // для комноненты framer motion
             whileDrag={{ scale: 1.2 }} // для комноненты framer motion
-            onDoubleClick={() => { killItem(item.id) }}
+            onDoubleClick={() => { setIsEditMode(true) }}
         >
-            <label className="check">
-            <input type="checkbox" checked={item.isDone}
-                onChange={(e) => {
-                    const checked = e.target.checked
-                    setTimeout(()=>{onDone(item.id, checked)}, 150)
-                }}
-            />
-            </label>
 
             {isEditMode ? (
-                <input className="edit"
-                value={value}
+                <input className="edit_input_field"
+                    value={value}
                     onChange={changeHandler}
                     ref={editTitleInputRef}
                     onKeyDown={onPressHandler}
+                    maxLength="20"
                 />
             ) : (
                 <div className="title">
@@ -70,15 +62,17 @@ function Item({ item, killItem, onEdited, onDone }) {
                 </div>
             )}
             {isEditMode ? (
-                <button className="btn" onClick={() => {
+                <button className="edit_btn" onClick={() => {
                     onEdited(item.id, value)
                     setIsEditMode(false)
                 }}>
                     ok
                 </button>
             ) : (
-                <button className="btn" onClick={() => { setIsEditMode(!isEditMode) }}>
-                    edit
+                <button className="del_btn" onClick={() => {
+                    killItem(item.id)
+                }}>
+                    X
                 </button>)}
         </Reorder.Item>
     )

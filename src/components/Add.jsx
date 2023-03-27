@@ -1,6 +1,7 @@
 import { useState } from "react"
+import randomColor from "randomcolor"
 
-export function Add ({changeData, filter, setActiveBtn, setCompleteBtn, setAllBtn}) {
+export function Add ({changeData}) {
     const [error, setError] = useState('')
     const submitHandler = (e) => {
         e.preventDefault()
@@ -8,7 +9,7 @@ export function Add ({changeData, filter, setActiveBtn, setCompleteBtn, setAllBt
         if(e.target.inp.value.trim().length === 0) {
             setError('please input data')
         } else {
-            changeData(prevData=>[...prevData, {id: Date.now(), title, isDone: false}])
+            changeData(prevData=>[...prevData, {id: Date.now(), title, color: randomColor({luminosity: 'light'})}])
             setError('')
         }
         e.target.reset()
@@ -17,15 +18,12 @@ export function Add ({changeData, filter, setActiveBtn, setCompleteBtn, setAllBt
             once: true,
             passive: false,
         })
-        filter('active')
-        setActiveBtn(true)
-        setCompleteBtn(false)
-        setAllBtn(false)
     }
+
     return (
         <form onSubmit={submitHandler} autoComplete='off'>
-            { error && <p>{error}</p> }
-            <input placeholder="new item" name="inp"></input>
+            { error && <p className="error_m">{error}</p> }
+            <input placeholder="new item" name="inp" maxLength="20"></input>
             <button className="submitBtn" type='submit' value='add item'>add item</button>
         </form>
     )
