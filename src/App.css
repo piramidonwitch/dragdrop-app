@@ -23,7 +23,7 @@
 }
 
 .title {
-  padding: 5px 10px;
+  padding: 10px 10px;
 }
 
 .edit_input_field {
@@ -54,6 +54,7 @@
 
 form {
   margin-bottom: 10px;
+  
 }
 
 ul {
@@ -68,6 +69,7 @@ input {
   padding: 10px;
   margin: 5px;
   width: 200px;
+  font-size: calc(10px + 2vmin);
 }
 
 .submitBtn {
@@ -77,6 +79,8 @@ input {
   margin: 5px;
   background-color: rgb(233, 233, 233);
   width: 80px;
+  font-size: calc(10px + 2vmin);
+  color: #282c34;
 }
 
 .item:hover {
