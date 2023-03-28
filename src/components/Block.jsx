@@ -54,7 +54,7 @@ function Item({ item, killItem, onEdited }) {
                     onChange={changeHandler}
                     ref={editTitleInputRef}
                     onKeyDown={onPressHandler}
-                    maxLength="20"
+                    maxLength="30"
                 />
             ) : (
                 <div className="title">
