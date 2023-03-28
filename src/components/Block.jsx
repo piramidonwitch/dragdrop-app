@@ -66,7 +66,7 @@ function Item({ item, killItem, onEdited }) {
                     onEdited(item.id, value)
                     setIsEditMode(false)
                 }}>
-                    ok
+                    OK
                 </button>
             ) : (
                 <button className="del_btn" onClick={() => {
