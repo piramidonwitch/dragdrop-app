@@ -27,13 +27,13 @@
 }
 
 .edit_input_field {
-  min-width: 200px;
+  height: 60px;
   border: none;
   padding: 10px;
   margin: 5px;
   background: transparent;
   color: #282c34;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 3vmin);
 }
 
 .del_btn, .edit_btn {
@@ -43,7 +43,17 @@
   background-color: transparent;
   color: #282c34;
 }
-.edit_btn, .submitBtn:hover {
+
+.edit_btn_ok {
+  border: none;
+  padding: 5px 15px;
+  margin-left: 10px;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 4vmin;
+}
+
+.edit_btn_ok, .edit_btn, .submitBtn:hover {
   cursor: pointer;
 }
 

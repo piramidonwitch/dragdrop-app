@@ -44,7 +44,7 @@ function Item({ item, killItem, onEdited }) {
             className="item"
             style={{ backgroundColor: item.color }}
             value={item} // для комноненты framer motion
-            whileDrag={{ scale: 1.2 }} // для комноненты framer motion
+            whileDrag={{ scale: 1.1 }} // для комноненты framer motion
             onDoubleClick={() => { setIsEditMode(true) }}
         >
 
@@ -62,7 +62,7 @@ function Item({ item, killItem, onEdited }) {
                 </div>
             )}
             {isEditMode ? (
-                <button className="edit_btn" onClick={() => {
+                <button className="edit_btn_ok" onClick={() => {
                     onEdited(item.id, value)
                     setIsEditMode(false)
                 }}>
